@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.buttonPannel = new System.Windows.Forms.Panel();
+            this.closestNiggers = new System.Windows.Forms.RichTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -47,7 +48,6 @@
             this.candidateButton = new System.Windows.Forms.Button();
             this.bluesButton = new System.Windows.Forms.Button();
             this.redsButton = new System.Windows.Forms.Button();
-            this.closestNiggers = new System.Windows.Forms.RichTextBox();
             this.buttonPannel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,8 +75,16 @@
             this.buttonPannel.Controls.Add(this.redsButton);
             this.buttonPannel.Location = new System.Drawing.Point(9, 9);
             this.buttonPannel.Name = "buttonPannel";
-            this.buttonPannel.Size = new System.Drawing.Size(190, 669);
+            this.buttonPannel.Size = new System.Drawing.Size(190, 710);
             this.buttonPannel.TabIndex = 0;
+            // 
+            // closestNiggers
+            // 
+            this.closestNiggers.Location = new System.Drawing.Point(17, 539);
+            this.closestNiggers.Name = "closestNiggers";
+            this.closestNiggers.Size = new System.Drawing.Size(159, 161);
+            this.closestNiggers.TabIndex = 21;
+            this.closestNiggers.Text = "";
             // 
             // label8
             // 
@@ -94,7 +102,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(44, 13);
             this.label9.TabIndex = 19;
-            this.label9.Text = "Melyna:";
+            this.label9.Text = "Mėlyna:";
             // 
             // label6
             // 
@@ -148,22 +156,26 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(33, 13);
             this.label2.TabIndex = 13;
-            this.label2.Text = "Zalia:";
+            this.label2.Text = "Žalia:";
             // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button3.Location = new System.Drawing.Point(14, 18);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(159, 35);
             this.button3.TabIndex = 12;
-            this.button3.Text = "Zalia";
+            this.button3.Text = "Žalia";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // yellowsButton
             // 
             this.yellowsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.yellowsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.yellowsButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.yellowsButton.Location = new System.Drawing.Point(14, 59);
             this.yellowsButton.Name = "yellowsButton";
             this.yellowsButton.Size = new System.Drawing.Size(159, 35);
@@ -177,9 +189,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(14, 220);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
+            this.label1.Size = new System.Drawing.Size(88, 13);
             this.label1.TabIndex = 10;
-            this.label1.Text = "Neibourghs";
+            this.label1.Text = "Kaimynų skaičius";
             // 
             // button1
             // 
@@ -187,7 +199,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(88, 34);
             this.button1.TabIndex = 9;
-            this.button1.Text = "Set";
+            this.button1.Text = "Nustatyti";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -211,7 +223,7 @@
             this.calculateButton.Name = "calculateButton";
             this.calculateButton.Size = new System.Drawing.Size(159, 35);
             this.calculateButton.TabIndex = 7;
-            this.calculateButton.Text = "Calculate";
+            this.calculateButton.Text = "Skaičiuoti";
             this.calculateButton.UseVisualStyleBackColor = true;
             this.calculateButton.Click += new System.EventHandler(this.calculateButton_Click);
             // 
@@ -221,34 +233,40 @@
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(159, 35);
             this.clearButton.TabIndex = 3;
-            this.clearButton.Text = "Clear All";
+            this.clearButton.Text = "Išvalyti";
             this.clearButton.UseVisualStyleBackColor = true;
             this.clearButton.Click += new System.EventHandler(this.button4_Click);
             // 
             // candidateButton
             // 
+            this.candidateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.candidateButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.candidateButton.Location = new System.Drawing.Point(14, 182);
             this.candidateButton.Name = "candidateButton";
             this.candidateButton.Size = new System.Drawing.Size(159, 35);
             this.candidateButton.TabIndex = 2;
-            this.candidateButton.Text = "Candidate";
+            this.candidateButton.Text = "Kandidatas";
             this.candidateButton.UseVisualStyleBackColor = true;
             this.candidateButton.Click += new System.EventHandler(this.candidateButton_Click);
             // 
             // bluesButton
             // 
             this.bluesButton.BackColor = System.Drawing.Color.Aqua;
+            this.bluesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bluesButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.bluesButton.Location = new System.Drawing.Point(14, 141);
             this.bluesButton.Name = "bluesButton";
             this.bluesButton.Size = new System.Drawing.Size(159, 35);
             this.bluesButton.TabIndex = 1;
-            this.bluesButton.Text = "Melyna";
+            this.bluesButton.Text = "Mėlyna";
             this.bluesButton.UseVisualStyleBackColor = false;
             this.bluesButton.Click += new System.EventHandler(this.bluesButton_Click);
             // 
             // redsButton
             // 
             this.redsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.redsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.redsButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.redsButton.Location = new System.Drawing.Point(14, 100);
             this.redsButton.Name = "redsButton";
             this.redsButton.Size = new System.Drawing.Size(159, 35);
@@ -256,14 +274,6 @@
             this.redsButton.Text = "Raudona";
             this.redsButton.UseVisualStyleBackColor = false;
             this.redsButton.Click += new System.EventHandler(this.redsButton_Click);
-            // 
-            // closestNiggers
-            // 
-            this.closestNiggers.Location = new System.Drawing.Point(17, 539);
-            this.closestNiggers.Name = "closestNiggers";
-            this.closestNiggers.Size = new System.Drawing.Size(159, 161);
-            this.closestNiggers.TabIndex = 21;
-            this.closestNiggers.Text = "";
             // 
             // Form1
             // 
@@ -277,7 +287,7 @@
             this.MinimumSize = new System.Drawing.Size(450, 450);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Flying Points";
+            this.Text = "Smagi programa :)";
             this.buttonPannel.ResumeLayout(false);
             this.buttonPannel.PerformLayout();
             this.ResumeLayout(false);

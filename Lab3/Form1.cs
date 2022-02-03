@@ -43,6 +43,8 @@ namespace Lab3
         internal bool isCandidateSelected;
         internal bool isCandidateSet;
         List<Neighbour> tempList = new List<Neighbour>();
+        bool nxBlt = false;
+        int MAXs;
 
 
         public Form1()
@@ -359,6 +361,7 @@ namespace Lab3
 
         private void calculateButton_Click(object sender, EventArgs e)
         {
+            MAXs = 0;
             getResult();
         }
 
@@ -397,36 +400,191 @@ namespace Lab3
                 int max = array.Max();
                 foreach (var item in array)
                 {
-                    if (array.Length != array.Distinct().Count())
+                    if (max == item)
+                        MAXs++;
+                }
+                closestNiggers.Clear();
+                UpdateLabels(array);
+                if (MAXs == 1)
+                {
+                    if (blues == max)
+                        MessageBox.Show("Kandidatas atitinka mėlynos spalvos požymius");
+                    if (reds == max)
+                        MessageBox.Show("Kandidatas atitinka raudonos spalvos požymius");
+                    if (yellows == max)
+                        MessageBox.Show("Kandidatas atitinka geltonos spalvos požymius");
+                    if (greens == max)
+                        MessageBox.Show("Kandidatas atitinka žalios spalvos požymius");
+                }
+                if (MAXs == 2)
+                {
+                    if (blues == reds && blues == max && reds == max)
                     {
-                        int temp = array.Distinct().Count();
-                        if (temp > 0)
+                        foreach (Neighbour item in neighbours)
                         {
-                            UpdateLabels(array);
-                            if (neighbours.First().label == "red") MessageBox.Show("Candidate is classified as red");
-                            if (neighbours.First().label == "blue") MessageBox.Show("Candidate is classified as blue");
-                            if (neighbours.First().label == "yellow") MessageBox.Show("Candidate is classified as yellow");
-                            if (neighbours.First().label == "green") MessageBox.Show("Candidate is classified as green");
-                            break;
-                        }
-                        else
-                        {
-                            if (item == max)
+                            if (item.label == "red" || item.label == "blue")
                             {
-                                string result = CheckColorName(array, max);
-                                MessageBox.Show(result);
+                                MessageBox.Show("Kandidatas atitinka " + item.label + " spalvos požymius");
+                                break;
                             }
                         }
-
                     }
-
-
+                    if (blues == greens && blues == max && greens == max)
+                    {
+                        foreach (Neighbour item in neighbours)
+                        {
+                            if (item.label == "blue" || item.label == "green")
+                            {
+                                MessageBox.Show("Kandidatas atitinka " + item.label + " spalvos požymius");
+                                break;
+                            }
+                        }
+                    }
+                    if (blues == yellows && blues == max && yellows == max)
+                    {
+                        foreach (Neighbour item in neighbours)
+                        {
+                            if (item.label == "blue" || item.label == "yellow")
+                            {
+                                MessageBox.Show("Kandidatas atitinka " + item.label + " spalvos požymius");
+                                break;
+                            }
+                        }
+                    }
+                    if (reds == greens && reds == max && greens == max)
+                    {
+                        foreach (Neighbour item in neighbours)
+                        {
+                            if (item.label == "red" || item.label == "green")
+                            {
+                                MessageBox.Show("Kandidatas atitinka " + item.label + " spalvos požymius");
+                                break;
+                            }
+                        }
+                    };
+                    if (reds == yellows && yellows == max && reds == max)
+                    {
+                        foreach (Neighbour item in neighbours)
+                        {
+                            if (item.label == "red" || item.label == "yellow")
+                            {
+                                MessageBox.Show("Kandidatas atitinka " + item.label + " spalvos požymius");
+                                break;
+                            }
+                        }
+                    }
+                    if (yellows == greens && yellows == max && greens == max)
+                    {
+                        foreach (Neighbour item in neighbours)
+                        {
+                            if (item.label == "yellow" || item.label == "green")
+                            {
+                                MessageBox.Show("Kandidatas atitinka " + item.label + " spalvos požymius");
+                                break;
+                            }
+                        }
+                    }
+                }
+                if (MAXs == 3)
+                {
+                    if (greens == yellows && yellows == reds && greens == max && yellows == max && reds == max)
+                    {
+                        foreach (Neighbour item in neighbours)
+                        {
+                            if (item.label == "green" || item.label == "yellow" || item.label == "red")
+                            {
+                                MessageBox.Show("Kandidatas atitinka " + item.label + " spalvos požymius");
+                                break;
+                            }
+                        }
+                    }
+                    if (greens == yellows && yellows == blues && greens == max && yellows == max && blues == max)
+                    {
+                        foreach (Neighbour item in neighbours)
+                        {
+                            if (item.label == "yellow" || item.label == "blue" || item.label == "green")
+                            {
+                                MessageBox.Show("Kandidatas atitinka " + item.label + " spalvos požymius");
+                                break;
+                            }
+                        }
+                    }
+                    if (yellows == reds && reds == blues && yellows == max && reds == max && blues == max)
+                    {
+                        foreach (Neighbour item in neighbours)
+                        {
+                            if (item.label == "yellow" || item.label == "red" || item.label == "blue")
+                            {
+                                MessageBox.Show("Kandidatas atitinka " + item.label + " spalvos požymius");
+                                break;
+                            }
+                        }
+                    }
+                    if (greens == reds && reds == blues && greens == max && reds == max && blues == max)
+                    {
+                        foreach (Neighbour item in neighbours)
+                        {
+                            if (item.label == "green" || item.label == "red" || item.label == "blue")
+                            {
+                                MessageBox.Show("Kandidatas atitinka " + item.label + " spalvos požymius");
+                                break;
+                            }
+                        }
+                    }
                 }
 
-            }
-            else
-            {
-                resultMessage = "Please, set a candidate";
+                if (MAXs == 4)
+                {
+                    if (neighbours.First().label == "red") MessageBox.Show("Kandidatas atitinka raudonos spalvos požymius");
+                    if (neighbours.First().label == "blue") MessageBox.Show("Kandidatas atitinka mėlynos spalvos požymius");
+                    if (neighbours.First().label == "yellow") MessageBox.Show("Kandidatas atitinka geltonos spalvos požymius");
+                    if (neighbours.First().label == "green") MessageBox.Show("Kandidatas atitinka žalios spalvos požymius");
+                }
+
+                //if (blues == reds && blues == max && reds == max)
+                //{
+                //    nxBlt = true;
+                //}
+                //if (blues == greens && blues == max && greens == max) {
+                //    nxBlt = true;
+                //}
+                //if (blues == yellows && blues == max && yellows == max)
+                //{
+                //    nxBlt = true;
+                //}
+                //if (reds == greens && reds == max && greens == max) {
+                //    nxBlt = true;
+                //};
+                //if (reds == yellows && yellows == max && reds == max)
+                //{
+                //    nxBlt = true;
+                //}
+                //if (yellows == greens && yellows == max && greens == max)
+                //{ 
+                //    nxBlt = true;
+                //}
+            //    foreach (var item in array)
+            //    {
+                    
+            //            UpdateLabels(array);
+            //            if (nxBlt == true)
+            //            {
+            //                if (neighbours.First().label == "red") MessageBox.Show("Kandidatas atitinka raudonos spalvos požymius");
+            //                if (neighbours.First().label == "blue") MessageBox.Show("Kandidatas atitinka mėlynos spalvos požymius");
+            //                if (neighbours.First().label == "yellow") MessageBox.Show("Kandidatas atitinka geltonos spalvos požymius");
+            //                if (neighbours.First().label == "green") MessageBox.Show("Kandidatas atitinka žalios spalvos požymius");
+            //                break;
+            //            }
+            //            else if (reds == max) { MessageBox.Show("Kandidatas atitinka raudonos spalvos požymius"); break; }
+            //            else if (blues == max) { MessageBox.Show("Kandidatas atitinka mėlynos spalvos požymius"); break; }
+            //            else if (greens == max) { MessageBox.Show("Kandidatas atitinka žalios spalvos požymius"); break; }
+            //            else if (yellows == max) { MessageBox.Show("Kandidatas atitinka geltonos spalvos požymius"); break; }
+            //    }
+
+            //}
+            //else
+            //{
+            //    resultMessage = "Pamiršote įdėti kandidatą";
             }
 
         }
@@ -464,7 +622,7 @@ namespace Lab3
             label3.Text = array[3].ToString();
             foreach (var item in tempList)
             {
-                closestNiggers.Text += item.id + item.label + item.distanceToCandidate + "\n";
+                closestNiggers.Text += item.id + ".  " + "spalva: " + item.label + "; atstumas: " + item.distanceToCandidate + ";\n\n";
             }
         }
 
